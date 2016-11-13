@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Twitter</title>
+  <title>picturgram</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -25,6 +25,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><%= link_to 'マイページ', edit_user_registration_path %></li> 
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'ログイン', new_user_session_path  %></li>
+          <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+        <% end %>        
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">メニュー <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -41,7 +48,7 @@
 
 <%= yield %>
 
-<footer>twitterアプリ練習</footer>
+<footer>copyrights</footer>
 
 </body>
 </html>

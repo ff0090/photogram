@@ -37,6 +37,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'rmagick'
   gem 'simple_form'
   gem 'twitter-bootstrap-rails'
+  gem 'devise'
 
 
 
