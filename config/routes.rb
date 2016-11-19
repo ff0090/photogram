@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   resources :products
   root 'top#index'
@@ -7,6 +8,10 @@ Rails.application.routes.draw do
   
   #posts
   resources :posts, only: [:index, :new, :create]
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end  
   
   #picture
   #get 'pictures' => 'pictures#index'
